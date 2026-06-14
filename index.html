@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nida Khurram - Portfolio</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
+        .project-card { overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .project-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .project-card img { transition: transform 0.5s ease; }
+        .project-card:hover img { transform: scale(1.25); }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -2px; left: 0;
+            width: 0; height: 2px; background: #a78bfa;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .typing-cursor::after {
+            content: '|'; animation: blink 0.8s step-end infinite;
+            color: #a78bfa;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in { animation: fadeInUp 0.6s ease forwards; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .skill-tag {
+            padding: 0.5rem 1.2rem; border-radius: 999px;
+            background: rgba(167, 139, 250, 0.15);
+            color: #c4b5fd; border: 1px solid rgba(167, 139, 250, 0.3);
+            font-size: 0.875rem; font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            background: rgba(167, 139, 250, 0.3);
+            transform: scale(1.05);
+        }
+        .modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 50;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(4px);
+            justify-content: center; align-items: center; padding: 1rem;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-img { max-width: 98vw; max-height: 98vh; border-radius: 12px; }
+        .section-title {
+            font-size: 2.25rem; font-weight: 700; text-align: center;
+            background: linear-gradient(to right, #c4b5fd, #818cf8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 3rem;
+        }
+        .timeline-dot {
+            width: 16px; height: 16px; border-radius: 50%;
+            background: #a78bfa; border: 3px solid #1e1b4b;
+            position: absolute; left: -8px; top: 4px;
+        }
+        .whatsapp-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 40;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: #25D366; display: flex; align-items: center;
+            justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,0.6); }
+        .tab-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #9ca3af; }
+        .tab-btn:hover { background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.3); }
+        .tab-btn.active { background: rgba(167,139,250,0.25); border-color: #a78bfa; color: #c4b5fd; }
+        .tab-content.hidden { display: none; }
+    </style>
+</head>
+<body class="bg-[#0f0c29] text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-40 glass">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <img src="logo.png" alt="Nida Khurram" class="h-8 w-auto">
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-gray-300 text-2xl">&#9776;</button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 flex flex-col gap-3 text-sm text-gray-300">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center gradient-bg px-4 pt-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <img src="page-1.jpeg" alt="Nida Khurram" class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-violet-400 shadow-lg shadow-violet-500/30 mb-6">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Nida Khurram</h1>
+            <p class="text-xl md:text-2xl text-violet-300 mb-6 typing-cursor inline-block">Educational Content Creator & Data Entry Professional</p>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">Detail-oriented professional specializing in educational content development for online schooling, along with data entry and accuracy-driven record keeping.</p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#work" class="px-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-full font-medium transition">View Work</a>
+                <a href="#contact" class="px-6 py-3 border border-violet-400 hover:bg-violet-400/10 rounded-full font-medium transition">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 px-4 bg-[#15132b]">
+        <div class="max-5xl mx-auto">
+            <h2 class="section-title">About Me</h2>
+            <div class="max-w-4xl mx-auto glass rounded-2xl p-8 md:p-10">
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    I am a detail-oriented data entry professional specializing in accurate record keeping,
+                    deadline-driven reporting, and data validation. I specialize in Excel, Google Sheets, and fast typing (45+ WPM).
+                </p>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    Currently, I am expanding my skills at Governor Sindh Initiative for Artificial Intelligence, Web 3.0 & Metaverse (2024 - Present),
+                    covering HTML, CSS, JavaScript, TypeScript, Node.js, Next.js, and Tailwind CSS.
+                    I also create comprehensive educational content for British School of Karachi, including monthly tests,
+                    worksheets, syllabi, and result reports for grades 1 through 7.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                    <div class="glass rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-violet-400">100%</div>
+                        <div class="text-gray-400 text-sm mt-1">Accuracy Rate</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-violet-400">7</div>
+                        <div class="text-gray-400 text-sm mt-1">Grades Covered</div>
+                    </div>
+                    <div class="glass rounded-xl p-4 text-center">
+                        <div class="text-3xl font-bold text-violet-400">45+</div>
+                        <div class="text-gray-400 text-sm mt-1">WPM Typing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work History -->
+    <section id="work" class="py-20 px-4 gradient-bg">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="section-title">Work History</h2>
+
+            <div class="max-w-3xl mx-auto relative border-l-2 border-violet-500/30 pl-8 space-y-10">
+
+                <div class="relative animate-in delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="glass rounded-xl p-6">
+                        <span class="text-violet-400 text-sm font-semibold">2024 - Present</span>
+                        <h3 class="text-xl font-bold mt-1">Online School Content Creator</h3>
+                        <p class="text-gray-400 text-sm">British School of Karachi — Remote</p>
+                        <ul class="mt-3 text-gray-300 space-y-1 list-disc list-inside text-sm">
+                            <li>Design and develop monthly tests, worksheets, and exam papers for classes 1 to 7 across all subjects.</li>
+                            <li>Create detailed syllabi, book lists, and vacation homework booklets aligned with curriculum standards.</li>
+                            <li>Prepare professional result reports and progress sheets with accurate academic summaries.</li>
+                            <li>Recreate and digitize educational materials from image-based sources into polished Word/PDF documents.</li>
+                            <li>Maintain organized digital records of all academic content for easy access and reuse.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative animate-in delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="glass rounded-xl p-6">
+                        <span class="text-violet-400 text-sm font-semibold">Apr 2022 - Nov 2023</span>
+                        <h3 class="text-xl font-bold mt-1">Account Assistant</h3>
+                        <p class="text-gray-400 text-sm">Lucky Textile Mills Limited — Karachi</p>
+                        <ul class="mt-3 text-gray-300 space-y-1 list-disc list-inside text-sm">
+                            <li>Performed daily data entry of inventory and shipment records into company systems with 100% accuracy.</li>
+                            <li>Conducted thorough accuracy checks on consumption reports and wastage calculations.</li>
+                            <li>Managed strict deadlines for document preparation, audit file organization, and regulatory reporting.</li>
+                            <li>Maintained organized, audit-ready records and resolved data mismatches through systematic verification.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative animate-in delay-3">
+                    <div class="timeline-dot"></div>
+                    <div class="glass rounded-xl p-6">
+                        <span class="text-violet-400 text-sm font-semibold">Dec 2011 - Apr 2012</span>
+                        <h3 class="text-xl font-bold mt-1">Computer Instructor</h3>
+                        <p class="text-gray-400 text-sm">Vocational Training Center (G), Sindh TEVTA — Karachi</p>
+                        <ul class="mt-3 text-gray-300 space-y-1 list-disc list-inside text-sm">
+                            <li>Entered and maintained student attendance, grades, and course completion records with high accuracy.</li>
+                            <li>Prepared monthly progress reports under tight deadlines for vocational training authorities.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="relative animate-in delay-4">
+                    <div class="timeline-dot"></div>
+                    <div class="glass rounded-xl p-6">
+                        <span class="text-violet-400 text-sm font-semibold">Jul 2010 - Aug 2010</span>
+                        <h3 class="text-xl font-bold mt-1">Computer Assistant</h3>
+                        <p class="text-gray-400 text-sm">Vocational Educational Center Girls — North Karachi</p>
+                        <ul class="mt-3 text-gray-300 space-y-1 list-disc list-inside text-sm">
+                            <li>Performed data entry tasks including filing, record updating, and document follow-up.</li>
+                            <li>Ensured timely completion of daily administrative data tasks with attention to detail.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Online School Projects -->
+    <section id="projects" class="py-20 px-4 bg-[#15132b]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title">Online School Projects</h2>
+            <p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Educational content developed for British School of Karachi.</p>
+
+            <!-- Tabs -->
+            <div class="flex justify-center gap-3 flex-wrap mb-10">
+                <button id="tabAll" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('all')">&#9733; All</button>
+                <button id="tabVacation" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('vacation')">&#9782; Vacation Work</button>
+                <button id="tabSyllabus" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('syllabus')">&#9783; Syllabus</button>
+                <button id="tabMonthlytest" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('monthlytest')">&#9998; Monthly Test</button>
+                <button id="tabResult" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('result')">&#9784; Result</button>
+                <button id="tabPreprimary" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('preprimary')">&#9826; Pre-Primary</button>
+            </div>
+
+            <!-- ALL Tab (shows everything) -->
+            <div id="contentAll" class="tab-content hidden">
+                <div class="space-y-14">
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9782; Vacation Homework</h3>
+                        <p class="text-gray-400 mb-8">Comprehensive vacation homework booklets designed for students to stay engaged during breaks.</p>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Grade 6
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Grade_6.pdf','_blank')">
+                                <img src="Grade_6.jpeg" alt="Grade 6 Vacation Homework" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Vacation Homework — Grade 6</p></div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Grade 7
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Grade_7.pdf','_blank')">
+                                <img src="Grade_7.jpeg" alt="Grade 7 Vacation Homework" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Vacation Homework — Grade 7</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9783; Syllabus</h3>
+                        <p class="text-gray-400 mb-8">Mid-term syllabus for Class 1 covering all major subjects.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Syllabus_MidTerm_Class1.pdf','_blank')">
+                                <img src="syllabus_class1.jpeg" alt="Syllabus Class 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Syllabus Overview — All Subjects</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9998; Monthly Tests</h3>
+                        <p class="text-gray-400 mb-8">Monthly tests for Science and Social Studies.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Monthly_Test_sci.pdf','_blank')">
+                                <img src="Monthly_test_sci.jpeg" alt="Monthly Test Science" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Science — Class 2</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Monthly_Test_SST.pdf','_blank')">
+                                <img src="monthly_test_sst.jpeg" alt="Monthly Test SST" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">SST — Monthly Test</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9784; Results</h3>
+                        <p class="text-gray-400 mb-8">Monthly test result report.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('result.jpeg','Monthly Test Result')">
+                                <img src="result.jpeg" alt="Result" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Monthly Test Result</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9826; Pre-Primary</h3>
+                        <p class="text-gray-400 mb-8">Fun learning activities and worksheets for pre-primary kids.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('pre1.png','Pre-Primary — Match the Number')">
+                                <img src="pre1.png" alt="Pre-Primary 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Activity 1 — Match the Number</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('pre2.png','Pre-Primary — Missing Number')">
+                                <img src="pre2.png" alt="Pre-Primary 2" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Activity 2 — Missing Number</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('pre3.png','Pre-Primary — Missing Alphabet')">
+                                <img src="pre3.png" alt="Pre-Primary 3" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Activity 3 — Missing Alphabet</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title">&#9783; Subjects Covered</h3>
+                        <div class="glass rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-violet-300 mb-4">Class 1 — Mid Term Syllabus</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-300">
+                                <div><p class="font-medium text-indigo-300 mb-1">Mathematics</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Tables 2 to 8</li><li>Counting (1-500), Words (1-50)</li><li>Backward Counting (100-1)</li><li>Addition & Subtraction</li><li>Multiplication, Shapes, Money</li></ul></div>
+                                <div><p class="font-medium text-indigo-300 mb-1">English</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Alphabetical Order</li><li>Nouns, Verbs, Adjectives</li><li>Articles, Singular/Plural</li><li>Opposites, Comprehension</li><li>Picture Composition</li></ul></div>
+                                <div><p class="font-medium text-indigo-300 mb-1">Urdu</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Haroof ki pehchan</li><li>Jor tor, Lafz banao</li><li>Jumlay likhna</li><li>Mazmoon nigari</li></ul></div>
+                                <div><p class="font-medium text-indigo-300 mb-1">Science</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Living & Non-Living Things</li><li>Parts of a Plant</li><li>Animals, Food, Our Body</li><li>Sense Organs</li></ul></div>
+                                <div><p class="font-medium text-indigo-300 mb-1">Social Studies</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>My Family, My School</li><li>Pakistan & its Provinces</li><li>Important Places</li><li>Our Helpers</li></ul></div>
+                                <div><p class="font-medium text-indigo-300 mb-1">Islamiat</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Surah Al-Fatiha with meaning</li><li>Five Pillars of Islam</li><li>Kalima Tayyaba, Wazu</li><li>Duas (before eating, sleeping)</li></ul></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vacation Work Tab -->
+            <div id="contentVacation" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">Vacation Homework</h3>
+                <p class="text-gray-400 mb-8">Comprehensive vacation homework booklets designed for students to stay engaged during breaks.</p>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Grade 6
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Grade_6.pdf','_blank')">
+                        <img src="Grade_6.jpeg" alt="Grade 6 Vacation Homework" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Vacation Homework — Grade 6</p></div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Grade 7
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Grade_7.pdf','_blank')">
+                        <img src="Grade_7.jpeg" alt="Grade 7 Vacation Homework" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Vacation Homework — Grade 7</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Syllabus Tab -->
+            <div id="contentSyllabus" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">Syllabus</h3>
+                <p class="text-gray-400 mb-8">Mid-term syllabus designed for Class 1 students covering all major subjects.</p>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Class 1 — Mid Term Syllabus
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Syllabus_MidTerm_Class1.pdf','_blank')">
+                        <img src="syllabus_class1.jpeg" alt="Syllabus Class 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Syllabus Overview — All Subjects</p></div>
+                    </div>
+                </div>
+
+                <div class="glass rounded-xl p-6 mt-6">
+                    <h4 class="text-lg font-semibold text-violet-300 mb-4">Subjects Covered</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-300">
+                        <div><p class="font-medium text-indigo-300 mb-1">Mathematics</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Tables 2 to 8</li><li>Counting (1-500), Words (1-50)</li><li>Backward Counting (100-1)</li><li>Addition & Subtraction</li><li>Multiplication, Shapes, Money</li></ul></div>
+                        <div><p class="font-medium text-indigo-300 mb-1">English</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Alphabetical Order</li><li>Nouns, Verbs, Adjectives</li><li>Articles, Singular/Plural</li><li>Opposites, Comprehension</li><li>Picture Composition</li></ul></div>
+                        <div><p class="font-medium text-indigo-300 mb-1">Urdu</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Haroof ki pehchan</li><li>Jor tor, Lafz banao</li><li>Jumlay likhna</li><li>Mazmoon nigari</li></ul></div>
+                        <div><p class="font-medium text-indigo-300 mb-1">Science</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Living & Non-Living Things</li><li>Parts of a Plant</li><li>Animals, Food, Our Body</li><li>Sense Organs</li></ul></div>
+                        <div><p class="font-medium text-indigo-300 mb-1">Social Studies</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>My Family, My School</li><li>Pakistan & its Provinces</li><li>Important Places</li><li>Our Helpers</li></ul></div>
+                        <div><p class="font-medium text-indigo-300 mb-1">Islamiat</p><ul class="list-disc list-inside text-gray-400 space-y-0.5"><li>Surah Al-Fatiha with meaning</li><li>Five Pillars of Islam</li><li>Kalima Tayyaba, Wazu</li><li>Duas (before eating, sleeping)</li></ul></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Test Tab -->
+            <div id="contentMonthlytest" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9998; Monthly Tests</h3>
+                <p class="text-gray-400 mb-8">Monthly tests for Science and Social Studies.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Monthly_Test_sci.pdf','_blank')">
+                        <img src="Monthly_test_sci.jpeg" alt="Monthly Test Science" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Science — Class 2</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Monthly_Test_SST.pdf','_blank')">
+                        <img src="monthly_test_sst.jpeg" alt="Monthly Test SST" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">SST — Monthly Test</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Tab -->
+            <div id="contentResult" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9784; Results</h3>
+                <p class="text-gray-400 mb-8">Monthly test result report.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('result.jpeg','Monthly Test Result')">
+                        <img src="result.jpeg" alt="Result" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Monthly Test Result</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-Primary Tab -->
+            <div id="contentPreprimary" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">&#9826; Pre-Primary</h3>
+                <p class="text-gray-400 mb-8">Fun learning activities and worksheets for pre-primary kids.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('pre1.png','Pre-Primary — Match the Number')">
+                        <img src="pre1.png" alt="Pre-Primary 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Activity 1 — Match the Number</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('pre2.png','Pre-Primary — Missing Number')">
+                        <img src="pre2.png" alt="Pre-Primary 2" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Activity 2 — Missing Number</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('pre3.png','Pre-Primary — Missing Alphabet')">
+                        <img src="pre3.png" alt="Pre-Primary 3" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Activity 3 — Missing Alphabet</p></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 px-4 gradient-bg">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="flex flex-wrap gap-3 justify-center mb-10">
+                <span class="skill-tag">Data Entry</span>
+                <span class="skill-tag">MS Excel (Advanced)</span>
+                <span class="skill-tag">Google Sheets</span>
+                <span class="skill-tag">MS Word</span>
+                <span class="skill-tag">Typing 45+ WPM</span>
+                <span class="skill-tag">Data Validation</span>
+                <span class="skill-tag">Document Formatting</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">Educational Content</span>
+                <span class="skill-tag">Curriculum Design</span>
+                <span class="skill-tag">Report Preparation</span>
+                <span class="skill-tag">Record Management</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4 bg-[#15132b]">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="text-gray-400 mb-8">Have a project or data entry need? Let's connect!</p>
+            <div class="glass rounded-2xl p-8 space-y-4">
+                <div class="flex items-center gap-3 justify-center text-gray-300">
+                    <span class="text-violet-400 text-xl">&#9993;</span>
+                    <a href="mailto:arshmanedu123@gmail.com" class="hover:text-violet-300 transition">arshmanedu123@gmail.com</a>
+                </div>
+                <div class="flex items-center gap-3 justify-center text-gray-300">
+                    <span class="text-violet-400 text-xl">&#9742;</span>
+                    <span>+92 318 6346964</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 px-4 text-center text-gray-500 text-sm border-t border-white/5">
+        &copy; 2026 Nida Khurram. All rights reserved.
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/923186346964" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="relative">
+            <button onclick="closeModal()" class="absolute -top-10 right-0 text-white text-2xl hover:text-violet-300 transition">&times;</button>
+            <img id="modalImg" class="modal-img" src="" alt="">
+            <p id="modalCaption" class="text-center text-white mt-3 text-lg font-medium"></p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Image Modal
+        function openModal(src, caption) {
+            const modal = document.getElementById('imageModal');
+            document.getElementById('modalImg').src = src;
+            document.getElementById('modalCaption').textContent = caption || '';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(e) {
+            if (e && e.target !== e.currentTarget) return;
+            document.getElementById('imageModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Keyboard escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            document.getElementById('content' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
+            document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+        }
+
+        // Set default tab
+        switchTab('all');
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
