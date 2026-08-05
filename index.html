@@ -238,6 +238,7 @@
                 <button id="tabVacation" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('vacation')">&#9782; Vacation Work</button>
                 <button id="tabSyllabus" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('syllabus')">&#9783; Syllabus</button>
                 <button id="tabMonthlytest" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('monthlytest')">&#9998; Monthly Test</button>
+                <button id="tabPaper" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('paper')">&#128196; Paper</button>
                 <button id="tabResult" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('result')">&#9784; Result</button>
                 <button id="tabPreprimary" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('preprimary')">&#9826; Pre-Primary</button>
             </div>
@@ -292,6 +293,109 @@
                             <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Monthly_Test_SST.pdf','_blank')">
                                 <img src="monthly_test_sst.jpeg" alt="Monthly Test SST" class="w-full h-48 object-cover" loading="lazy">
                                 <div class="p-3"><p class="text-sm text-gray-300">SST — Monthly Test</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#128196; Papers</h3>
+                        <p class="text-gray-400 mb-8">Mid Term Examination Paper 2 for Class 1.</p>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> English Paper 2
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (1).png','English Paper 2 — Page 1')">
+                                <img src="eng-pp2 (1).png" alt="English Paper 2 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 1</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (2).png','English Paper 2 — Page 2')">
+                                <img src="eng-pp2 (2).png" alt="English Paper 2 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 2</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (3).png','English Paper 2 — Page 3')">
+                                <img src="eng-pp2 (3).png" alt="English Paper 2 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 3</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (4).png','English Paper 2 — Page 4')">
+                                <img src="eng-pp2 (4).png" alt="English Paper 2 Page 4" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 4</p></div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Math Paper 1
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp1 (1).png','Math Paper 1 — Page 1')">
+                                <img src="math-pp1 (1).png" alt="Math Paper 1 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 1 — Page 1</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp1 (2).png','Math Paper 1 — Page 2')">
+                                <img src="math-pp1 (2).png" alt="Math Paper 1 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 1 — Page 2</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp1 (3).png','Math Paper 1 — Page 3')">
+                                <img src="math-pp1 (3).png" alt="Math Paper 1 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 1 — Page 3</p></div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Math Paper 2
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (1).png','Math Paper 2 — Page 1')">
+                                <img src="math-pp2 (1).png" alt="Math Paper 2 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 1</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (2).png','Math Paper 2 — Page 2')">
+                                <img src="math-pp2 (2).png" alt="Math Paper 2 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 2</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (3).png','Math Paper 2 — Page 3')">
+                                <img src="math-pp2 (3).png" alt="Math Paper 2 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 3</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (4).png','Math Paper 2 — Page 4')">
+                                <img src="math-pp2 (4).png" alt="Math Paper 2 Page 4" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 4</p></div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Urdu Paper 1
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp1 (1).png','Urdu Paper 1 — Page 1')">
+                                <img src="urdu-pp1 (1).png" alt="Urdu Paper 1 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 1 — Page 1</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp1 (2).png','Urdu Paper 1 — Page 2')">
+                                <img src="urdu-pp1 (2).png" alt="Urdu Paper 1 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 1 — Page 2</p></div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Urdu Paper 2
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (1).png','Urdu Paper 2 — Page 1')">
+                                <img src="urdu-pp2 (1).png" alt="Urdu Paper 2 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 1</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (2).png','Urdu Paper 2 — Page 2')">
+                                <img src="urdu-pp2 (2).png" alt="Urdu Paper 2 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 2</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (3).png','Urdu Paper 2 — Page 3')">
+                                <img src="urdu-pp2 (3).png" alt="Urdu Paper 2 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 3</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (4).png','Urdu Paper 2 — Page 4')">
+                                <img src="urdu-pp2 (4).png" alt="Urdu Paper 2 Page 4" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 4</p></div>
                             </div>
                         </div>
                     </div>
@@ -410,6 +514,110 @@
                     <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Monthly_Test_SST.pdf','_blank')">
                         <img src="monthly_test_sst.jpeg" alt="Monthly Test SST" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-3"><p class="text-sm text-gray-300">SST — Monthly Test</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paper Tab -->
+            <div id="contentPaper" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">&#128196; Papers</h3>
+                <p class="text-gray-400 mb-8">Mid Term Examination Paper 2 for Class 1.</p>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> English Paper 2
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (1).png','English Paper 2 — Page 1')">
+                        <img src="eng-pp2 (1).png" alt="English Paper 2 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 1</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (2).png','English Paper 2 — Page 2')">
+                        <img src="eng-pp2 (2).png" alt="English Paper 2 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 2</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (3).png','English Paper 2 — Page 3')">
+                        <img src="eng-pp2 (3).png" alt="English Paper 2 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 3</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('eng-pp2 (4).png','English Paper 2 — Page 4')">
+                        <img src="eng-pp2 (4).png" alt="English Paper 2 Page 4" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">English Paper 2 — Page 4</p></div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Math Paper 1
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp1 (1).png','Math Paper 1 — Page 1')">
+                        <img src="math-pp1 (1).png" alt="Math Paper 1 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 1 — Page 1</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp1 (2).png','Math Paper 1 — Page 2')">
+                        <img src="math-pp1 (2).png" alt="Math Paper 1 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 1 — Page 2</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp1 (3).png','Math Paper 1 — Page 3')">
+                        <img src="math-pp1 (3).png" alt="Math Paper 1 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 1 — Page 3</p></div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Math Paper 2
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (1).png','Math Paper 2 — Page 1')">
+                        <img src="math-pp2 (1).png" alt="Math Paper 2 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 1</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (2).png','Math Paper 2 — Page 2')">
+                        <img src="math-pp2 (2).png" alt="Math Paper 2 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 2</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (3).png','Math Paper 2 — Page 3')">
+                        <img src="math-pp2 (3).png" alt="Math Paper 2 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 3</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('math-pp2 (4).png','Math Paper 2 — Page 4')">
+                        <img src="math-pp2 (4).png" alt="Math Paper 2 Page 4" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Math Paper 2 — Page 4</p></div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Urdu Paper 1
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp1 (1).png','Urdu Paper 1 — Page 1')">
+                        <img src="urdu-pp1 (1).png" alt="Urdu Paper 1 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 1 — Page 1</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp1 (2).png','Urdu Paper 1 — Page 2')">
+                        <img src="urdu-pp1 (2).png" alt="Urdu Paper 1 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 1 — Page 2</p></div>
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-semibold text-indigo-300 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full inline-block"></span> Urdu Paper 2
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (1).png','Urdu Paper 2 — Page 1')">
+                        <img src="urdu-pp2 (1).png" alt="Urdu Paper 2 Page 1" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 1</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (2).png','Urdu Paper 2 — Page 2')">
+                        <img src="urdu-pp2 (2).png" alt="Urdu Paper 2 Page 2" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 2</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (3).png','Urdu Paper 2 — Page 3')">
+                        <img src="urdu-pp2 (3).png" alt="Urdu Paper 2 Page 3" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 3</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('urdu-pp2 (4).png','Urdu Paper 2 — Page 4')">
+                        <img src="urdu-pp2 (4).png" alt="Urdu Paper 2 Page 4" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Urdu Paper 2 — Page 4</p></div>
                     </div>
                 </div>
             </div>
