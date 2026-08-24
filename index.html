@@ -284,6 +284,7 @@
                 <button id="tabPaper" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('paper')">&#128196; Paper</button>
                 <button id="tabResult" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('result')">&#9784; Result</button>
                 <button id="tabPreprimary" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('preprimary')">&#9826; Pre-Primary</button>
+                <button id="tabSocialmedia" class="tab-btn px-5 py-2.5 rounded-full font-medium transition text-sm" onclick="switchTab('socialmedia')">&#127760; Social Media</button>
             </div>
 
             <!-- ALL Tab (shows everything) -->
@@ -321,6 +322,10 @@
                             <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Syllabus_MidTerm_Class1.pdf','_blank')">
                                 <img src="syllabus_class1.jpeg" alt="Syllabus Class 1" class="w-full h-48 object-cover" loading="lazy">
                                 <div class="p-3"><p class="text-sm text-gray-300">Syllabus Overview — All Subjects</p></div>
+                            </div>
+                            <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('syllabus-class-1.png','Syllabus Class 1 — Detailed Page')">
+                                <img src="syllabus-class-1.png" alt="Syllabus Class 1 Detailed" class="w-full h-48 object-cover" loading="lazy">
+                                <div class="p-3"><p class="text-sm text-gray-300">Syllabus Class 1 — Detailed Page</p></div>
                             </div>
                             <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('islamiat (1).png','Islamiat — Page 1')">
                                 <img src="islamiat (1).png" alt="Islamiat Page 1" class="w-full h-48 object-cover" loading="lazy">
@@ -482,6 +487,46 @@
                     </div>
 
                     <div>
+                        <h3 class="text-2xl font-bold text-violet-300 mb-2">&#127760; Social Media</h3>
+                        <p class="text-gray-400 mb-8">Creative posts designed for school social media pages.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="glass rounded-2xl overflow-hidden cursor-pointer" onclick="openModal('summer-vacation.png','Summer Vacation — Social Media Post')">
+                            <div class="flex items-center gap-3 p-4">
+                                <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-full object-cover border border-violet-400/40">
+                                <div>
+                                    <p class="text-sm font-semibold text-white">ABC School</p>
+                                    <p class="text-xs text-gray-400">&#128281; Announcement &middot; Summer 2026</p>
+                                </div>
+                            </div>
+                            <img src="summer-vacation.png" alt="Summer Vacation Post" class="w-full h-64 object-contain bg-black/30" loading="lazy">
+                            <div class="p-4 space-y-2">
+                                <div class="flex items-center gap-5 text-gray-400 text-lg">
+                                    <span title="Like">&#10084;&#65039;</span>
+                                    <span title="Comment">&#128172;</span>
+                                    <span title="Share">&#8599;</span>
+                                </div>
+                                <p class="text-sm text-gray-300"><span class="font-semibold text-white">abc_school</span> &#9728;&#65039; Summer Vacations Announced! Wishing all our students a safe and happy holiday. &#127774;</p>
+                            </div>
+                        </div>
+
+                        <div class="glass rounded-2xl overflow-hidden cursor-pointer" onclick="openModal('reopen-school.jpg','School Reopening')">
+                            <div class="flex items-center gap-3 p-4">
+                                <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-full object-cover border border-violet-400/40">
+                                <div>
+                                    <p class="text-sm font-semibold text-white">ABC School</p>
+                                    <p class="text-xs text-gray-400">Announcement &middot; School Reopening</p>
+                                </div>
+                            </div>
+                            <img src="reopen-school.jpg" alt="School Reopening" class="w-full h-64 object-contain bg-black/30" loading="lazy">
+                            <div class="p-4">
+                                <p class="text-sm text-gray-300"><span class="font-semibold text-white">abc_school</span> School reopening announcement.</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div>
                         <h3 class="section-title">&#9783; Subjects Covered</h3>
                         <div class="glass rounded-xl p-6">
                             <h4 class="text-lg font-semibold text-violet-300 mb-4">Class 1 — Mid Term Syllabus</h4>
@@ -536,6 +581,10 @@
                     <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="window.open('Syllabus_MidTerm_Class1.pdf','_blank')">
                         <img src="syllabus_class1.jpeg" alt="Syllabus Class 1" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-3"><p class="text-sm text-gray-300">Syllabus Overview — All Subjects</p></div>
+                    </div>
+                    <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('syllabus-class-1.png','Syllabus Class 1 — Detailed Page')">
+                        <img src="syllabus-class-1.png" alt="Syllabus Class 1 Detailed" class="w-full h-48 object-cover" loading="lazy">
+                        <div class="p-3"><p class="text-sm text-gray-300">Syllabus Class 1 — Detailed Page</p></div>
                     </div>
                     <div class="project-card glass rounded-xl overflow-hidden cursor-pointer" onclick="openModal('islamiat (1).png','Islamiat — Page 1')">
                         <img src="islamiat (1).png" alt="Islamiat Page 1" class="w-full h-48 object-cover" loading="lazy">
@@ -711,6 +760,47 @@
                         <img src="pre3.png" alt="Pre-Primary 3" class="w-full h-48 object-cover" loading="lazy">
                         <div class="p-3"><p class="text-sm text-gray-300">Activity 3 — Missing Alphabet</p></div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Social Media Tab -->
+            <div id="contentSocialmedia" class="tab-content hidden">
+                <h3 class="text-2xl font-bold text-violet-300 mb-2">&#127760; Social Media</h3>
+                <p class="text-gray-400 mb-8">Creative posts designed for school social media pages.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass rounded-2xl overflow-hidden cursor-pointer" onclick="openModal('summer-vacation.png','Summer Vacation — Social Media Post')">
+                    <div class="flex items-center gap-3 p-4">
+                        <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-full object-cover border border-violet-400/40">
+                        <div>
+                            <p class="text-sm font-semibold text-white">ABC School</p>
+                            <p class="text-xs text-gray-400">&#128281; Announcement &middot; Summer 2026</p>
+                        </div>
+                    </div>
+                    <img src="summer-vacation.png" alt="Summer Vacation Post" class="w-full h-64 object-contain bg-black/30" loading="lazy">
+                    <div class="p-4 space-y-2">
+                        <div class="flex items-center gap-5 text-gray-400 text-lg">
+                            <span title="Like">&#10084;&#65039;</span>
+                            <span title="Comment">&#128172;</span>
+                            <span title="Share">&#8599;</span>
+                        </div>
+                        <p class="text-sm text-gray-300"><span class="font-semibold text-white">abc_school</span> &#9728;&#65039; Summer Vacations Announced! Wishing all our students a safe and happy holiday. &#127774;</p>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl overflow-hidden cursor-pointer" onclick="openModal('reopen-school.jpg','School Reopening')">
+                    <div class="flex items-center gap-3 p-4">
+                        <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-full object-cover border border-violet-400/40">
+                        <div>
+                            <p class="text-sm font-semibold text-white">ABC School</p>
+                            <p class="text-xs text-gray-400">Announcement &middot; School Reopening</p>
+                        </div>
+                    </div>
+                    <img src="reopen-school.jpg" alt="School Reopening" class="w-full h-64 object-contain bg-black/30" loading="lazy">
+                    <div class="p-4">
+                        <p class="text-sm text-gray-300"><span class="font-semibold text-white">abc_school</span> School reopening announcement.</p>
+                    </div>
+                </div>
                 </div>
             </div>
 
