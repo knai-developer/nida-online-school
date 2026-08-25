@@ -26,13 +26,6 @@
             transition: width 0.3s ease;
         }
         .nav-link:hover::after { width: 100%; }
-        .typing-cursor::after {
-            content: '|'; animation: blink 0.8s step-end infinite;
-            color: #a78bfa;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -150,9 +143,8 @@
     <!-- Hero -->
     <section id="home" class="min-h-screen flex items-center justify-center gradient-bg px-4 pt-16">
         <div class="max-w-4xl mx-auto text-center">
-            <img src="page-1.jpeg" alt="Nida Khurram" class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-violet-400 shadow-lg shadow-violet-500/30 mb-6">
             <h1 class="text-5xl md:text-7xl font-bold mb-4">Nida Khurram</h1>
-            <p class="text-xl md:text-2xl text-violet-300 mb-6 typing-cursor inline-block">Private Schools Content Creator</p>
+            <p class="text-xl md:text-2xl text-violet-300 mb-6">Private Schools Content Creator</p>
             <p class="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">Detail-oriented professional specializing in educational content development for online and private schools.</p>
             <div class="flex gap-4 justify-center flex-wrap">
                 <a href="#work" class="px-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-full font-medium transition">View Work</a>
